@@ -1,0 +1,312 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #05070d;
+  --accent: #3b82f6;
+  --accent-soft: #60a5fa;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: white;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #05070d;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1e3a8a, #3b82f6);
+  border-radius: 8px;
+  border: 2px solid #05070d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2563eb, #60a5fa);
+}
+
+/* Selection */
+::selection {
+  background: rgba(59, 130, 246, 0.35);
+  color: white;
+}
+
+/* Focus rings */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(120deg, #ffffff 0%, #60a5fa 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(120deg, #60a5fa 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass surface */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Scanner scaffolding */
+.scanner-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: linear-gradient(180deg, #0a0e1a 0%, #05070d 100%);
+  isolation: isolate;
+}
+
+.scanner-frame .layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: clip-path;
+}
+
+.scanner-frame .layer-sharp {
+  z-index: 2;
+  animation: scan-sharp 6s ease-in-out infinite;
+}
+
+.scanner-frame .layer-blur {
+  z-index: 1;
+  filter: blur(14px) brightness(0.55) saturate(0.85);
+  animation: scan-blur 6s ease-in-out infinite;
+}
+
+/*
+ * All three scanner animations (sharp, blur, scan-line) use the same 6s
+ * ease-in-out curve and the same keyframe progression 0% → 50% → 100%
+ * so they remain perfectly in phase.
+ *
+ * Boundary math:
+ *  - Sharp layer visible region: top → (100% - clip-bottom)
+ *  - Blur layer visible region: clip-top → bottom
+ *  - Scan-line sits at: top: scan-y (as a % of frame height)
+ *
+ * At any moment, sharp's bottom edge == blur's top edge == scan-line top.
+ * This guarantees the blue bar sits exactly at the sharp/blur seam.
+ */
+@keyframes scan-sharp {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  50% {
+    clip-path: inset(0 0 0% 0);
+  }
+  100% {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+@keyframes scan-blur {
+  0% {
+    clip-path: inset(0% 0 0 0);
+  }
+  50% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0% 0 0 0);
+  }
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  top: 0%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(96, 165, 250, 0.6) 20%,
+    rgba(59, 130, 246, 1) 50%,
+    rgba(96, 165, 250, 0.6) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 24px 6px rgba(59, 130, 246, 0.6),
+    0 0 60px 12px rgba(59, 130, 246, 0.35);
+  pointer-events: none;
+  z-index: 3;
+  animation: scan-line-move 6s ease-in-out infinite;
+  /* Phase lock: same duration + timing function as the layer keyframes */
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes scan-line-move {
+  0% {
+    top: 0%;
+  }
+  50% {
+    top: calc(100% - 3px);
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+.scan-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2px;
+  height: 4px;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.4),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.scan-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 14px;
+  background: linear-gradient(
+    0deg,
+    rgba(59, 130, 246, 0.25),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Reduce motion: kill looping animations, freeze at midpoint */
+@media (prefers-reduced-motion: reduce) {
+  .scanner-frame .layer-sharp,
+  .scanner-frame .layer-blur,
+  .scan-line {
+    animation: none;
+  }
+  .scanner-frame .layer-sharp {
+    clip-path: inset(0 0 50% 0);
+  }
+  .scanner-frame .layer-blur {
+    clip-path: inset(50% 0 0 0);
+  }
+  .scan-line {
+    top: calc(50% - 1.5px);
+  }
+  .animate-marquee,
+  .animate-border-spin,
+  .animate-float,
+  .animate-pulse-soft {
+    animation: none !important;
+  }
+}
+
+/* Animated underline for nav */
+.nav-underline {
+  position: absolute;
+  bottom: -2px;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+}
+
+/* Marquee gradient mask */
+.marquee-mask {
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* Contact form inputs */
+.contact-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.contact-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.contact-input:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(18px);
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(59, 130, 246, 0) 0%,
+    rgba(59, 130, 246, 0.8) 30%,
+    rgba(96, 165, 250, 0.8) 50%,
+    rgba(59, 130, 246, 0) 80%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-spin 8s linear infinite;
+  pointer-events: none;
+}
