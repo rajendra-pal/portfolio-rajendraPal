@@ -6,17 +6,6 @@ Designed to showcase my projects, technical skills, and software engineering jou
 
 🌐 **Live Demo:** https://portfolio-rajendrapal2.onrender.com/
 
----
-
-## 📸 Preview
-
-> Add screenshots or GIFs here after deployment.
-
-| Home | About | Projects |
-|------|---------|----------|
-| ![](public/readme/home.png) | ![](public/readme/about.png) | ![](public/readme/projects.png) |
-
----
 
 # ✨ Features
 
