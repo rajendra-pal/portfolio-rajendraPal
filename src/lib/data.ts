@@ -221,7 +221,7 @@ export const PROJECTS: Project[] = [
     title: "Loknath Art Centre",
     blurb:
       "A complete e-commerce experience for a traditional art school — courses, payments, and authentication in one product.",
-    cover: "from-[#1E3A8A] via-[#3B82F6] to-[#60A5FA]",
+    cover: "/project_image/loknath-Art-Centre.png",
     tech: ["Next.js", "React", "Node.js", "Express", "MongoDB"],
     features: [
       "E-commerce catalogue for art supplies",
@@ -230,8 +230,8 @@ export const PROJECTS: Project[] = [
       "UPI QR-based checkout flow",
       "Responsive design across devices",
     ],
-    live: "https://loknathartcentre.example.com",
-    github: "https://github.com/rajendrapal/loknath-art-centre",
+    live: "https://loknath-art-centre.vercel.app/",
+    github: "https://github.com/rajendra-pal/loknath-art-centre",
   },
   {
     slug: "studentfocus",
@@ -247,8 +247,8 @@ export const PROJECTS: Project[] = [
       "Personal analytics dashboard",
       "Calm, focused interface",
     ],
-    live: "",
-    github: "https://github.com/rajendrapal/studentfocus",
+    live: "https://studentfocus-v862.onrender.com/",
+    github: "https://github.com/rajendra-pal/studentfocus",
   },
   {
     slug: "bajale",
@@ -264,7 +264,7 @@ export const PROJECTS: Project[] = [
       "Responsive across mobile and desktop",
     ],
     live: "",
-    github: "https://github.com/rajendrapal/bajale",
+    github: "https://github.com/rajendra-pal/Bajale-Music-web-app",
   },
 ];
 

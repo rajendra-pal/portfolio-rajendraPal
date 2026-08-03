@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle2, ExternalLink, Github } from "lucide-react";
@@ -57,23 +58,33 @@ export function ProjectCard({ project, featured = false }: Props) {
     >
       <div className="relative h-full overflow-hidden rounded-[inherit] bg-bg-soft p-6 md:p-7">
         {/* Cover */}
-        <div
-          className={cn(
-            "relative mb-6 flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br",
-            project.cover,
-            "shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+        {/* Cover */}
+        <div className="relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/10">
+          {project.cover.startsWith("/") ? (
+            <Image
+              src={project.cover}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+            />
+          ) : (
+            <div
+              className={cn(
+                "absolute inset-0 bg-gradient-to-br",
+                project.cover
+              )}
+            />
           )}
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_60%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(5,7,13,0.4)_100%)]" />
-          <div className="relative z-10 font-display text-2xl font-bold text-white/90 md:text-3xl">
-            {project.title}
-          </div>
-          {/* slot for user-supplied screenshot */}
-          <div className="absolute inset-0 grid place-items-center">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-              Add screenshot at /projects/{project.slug}.png
-            </span>
+
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+          {/* Project title */}
+          <div className="absolute bottom-4 left-4 z-10">
+            <h3 className="font-display text-2xl font-bold text-white">
+              {project.title}
+            </h3>
           </div>
         </div>
 
