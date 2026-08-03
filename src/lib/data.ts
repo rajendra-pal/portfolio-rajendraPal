@@ -16,8 +16,10 @@ import {
   Terminal,
   Triangle,
   Workflow,
+  Cpu,
 } from "lucide-react";
 
+                            // skills section
 export type Skill = {
   name: string;
   proficiency: number; // 0–100
@@ -69,12 +71,26 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     ],
   },
   {
+    id: "fundamentals",
+    title: "CS Fundamentals",
+    blurb: "Core computer science concepts I apply in development.",
+    skills: [
+      { name: "Data Structures", proficiency: 88, Icon: Cpu },
+      { name: "Algorithms", proficiency: 86, Icon: Cpu },
+      { name: "OOP", proficiency: 90, Icon: Cpu },
+      { name: "DBMS", proficiency: 88, Icon: Database },
+      { name: "Computer Networks", proficiency: 82, Icon: Workflow },
+      { name: "Operating Systems", proficiency: 80, Icon: Terminal },
+    ],
+  },
+  {
     id: "database",
     title: "Database",
     blurb: "Schema design and query craft.",
     skills: [
       { name: "MongoDB", proficiency: 86, Icon: Database },
       { name: "MySQL", proficiency: 80, Icon: Database },
+      { name: "SQL", proficiency: 86, Icon: Database },
     ],
   },
   {
@@ -120,6 +136,7 @@ export type Stat = {
   hint: string;
 };
 
+                          // display numeric acheivement
 export const STATS: Stat[] = [
   {
     value: 3,
@@ -141,6 +158,7 @@ export const STATS: Stat[] = [
   },
 ];
 
+                          // edication path section
 export type Education = {
   id: string;
   degree: string;
@@ -183,6 +201,8 @@ export const EDUCATION: Education[] = [
       "Built the discipline and curiosity that still drive how I solve problems today.",
   },
 ];
+
+                              // projects section
 
 export type Project = {
   slug: string;
