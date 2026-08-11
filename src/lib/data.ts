@@ -238,7 +238,7 @@ export const PROJECTS: Project[] = [
     title: "StudentFocus",
     blurb:
       "A focused productivity suite for students — goals, projects, DSA practice, and analytics on one dashboard.",
-    cover: "from-[#0F172A] via-[#1D4ED8] to-[#3B82F6]",
+    cover: "/project_image/student_focus.png",
     tech: ["React", "TypeScript", "Tailwind"],
     features: [
       "Goal tracking with milestones",
@@ -255,7 +255,7 @@ export const PROJECTS: Project[] = [
     title: "Bajale",
     blurb:
       "A Spotify-inspired music streaming front-end with real-time search and a responsive, audio-first layout.",
-    cover: "from-[#1E1B4B] via-[#4338CA] to-[#60A5FA]",
+    cover: "/project_image/bajale_music.png",
     tech: ["HTML", "CSS", "JavaScript", "Node.js", "Express"],
     features: [
       "Spotify-inspired layout and motion",
@@ -265,6 +265,22 @@ export const PROJECTS: Project[] = [
     ],
     live: "",
     github: "https://github.com/rajendra-pal/Bajale-Music-web-app",
+  },
+  {
+    slug: "portfolio",
+    title: "Portfolio",
+    blurb:
+      "A beautiful portfolio website front-end with responsive design",
+    cover: "/project_image/portfolio.png",
+    tech: ["REACT", "CSS", "TypeScript"],
+    features: [
+      "Hero section with personal details and image",
+      "Projects with github repo link and live preview link",
+      "Work experience and education history",
+      "Responsive across mobile and desktop",
+    ],
+    live: "https://portfolio-rajendrapal2.onrender.com/",
+    github: "https://github.com/rajendra-pal/portfolio-rajendraPal",
   },
 ];
 
