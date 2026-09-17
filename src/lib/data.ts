@@ -63,11 +63,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Backend",
     blurb: "APIs, auth, and the logic that powers products.",
     skills: [
-      { name: "Node.js", proficiency: 88, Icon: Server },
+      { name: "Node.js", proficiency: 78, Icon: Server },
       { name: "Express", proficiency: 86, Icon: Server },
-      { name: "REST APIs", proficiency: 88, Icon: Workflow },
-      { name: "Authentication", proficiency: 82, Icon: KeyRound },
-      { name: "JWT", proficiency: 84, Icon: KeyRound },
+      { name: "REST APIs", proficiency: 80, Icon: Workflow },
+      { name: "Authentication", proficiency: 40, Icon: KeyRound },
+      { name: "JWT", proficiency: 30, Icon: KeyRound },
     ],
   },
   {
@@ -75,12 +75,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "CS Fundamentals",
     blurb: "Core computer science concepts I apply in development.",
     skills: [
-      { name: "Data Structures", proficiency: 88, Icon: Cpu },
-      { name: "Algorithms", proficiency: 86, Icon: Cpu },
-      { name: "OOP", proficiency: 90, Icon: Cpu },
-      { name: "DBMS", proficiency: 88, Icon: Database },
-      { name: "Computer Networks", proficiency: 82, Icon: Workflow },
-      { name: "Operating Systems", proficiency: 80, Icon: Terminal },
+      { name: "Data Structures", proficiency: 80, Icon: Cpu },
+      { name: "OOP", proficiency: 70, Icon: Cpu },
+      { name: "DBMS", proficiency: 85, Icon: Database },
+      { name: "Computer Networks", proficiency: 70, Icon: Workflow },
+      { name: "Operating Systems", proficiency: 70, Icon: Terminal },
     ],
   },
   {
