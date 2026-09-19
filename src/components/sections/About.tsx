@@ -63,7 +63,7 @@ export function About() {
                 <span className="text-white">Node.js</span>,{" "}
                 <span className="text-white">Express</span>, and{" "}
                 <span className="text-white">MongoDB</span>, with{" "}
-                <span className="text-white">Python</span> on the side for
+                <span className="text-white">Python and it's libraries</span> on the side for
                 scripting and DSA. I care about the small things — responsive
                 layouts, authentication flows, query shapes — that decide
                 whether a product actually feels good.

@@ -17,6 +17,10 @@ import {
   Triangle,
   Workflow,
   Cpu,
+  Sigma,
+  Table2,
+  BarChart3,
+  ChartNoAxesCombined,
 } from "lucide-react";
 
                             // skills section
@@ -40,10 +44,22 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     blurb: "The foundations I write logic in.",
     skills: [
       { name: "C", proficiency: 78, Icon: FileCode2 },
-      { name: "C++", proficiency: 80, Icon: FileCode2 },
-      { name: "Python", proficiency: 88, Icon: Code2 },
-      { name: "JavaScript", proficiency: 92, Icon: Code2 },
-      { name: "TypeScript", proficiency: 86, Icon: Code2 },
+      { name: "C++", proficiency: 85, Icon: FileCode2 },
+      { name: "Python", proficiency: 85, Icon: Code2 },
+      { name: "JavaScript", proficiency: 80, Icon: Code2 },
+      { name: "TypeScript", proficiency: 70, Icon: Code2 },
+    ],
+  },
+  {
+    id: "data science",
+    title: "Data Science",
+    blurb: "All the works related to data",
+    skills: [
+      { name: "Python", proficiency: 85, Icon: Code2 },
+      { name: "NumPy", proficiency: 80, Icon: Sigma },
+      { name: "Pandas", proficiency: 80, Icon: Table2 },
+      { name: "Matplotlib", proficiency: 70, Icon: BarChart3 },
+      { name: "Seaborn", proficiency: 50, Icon: ChartNoAxesCombined },
     ],
   },
   {
@@ -51,11 +67,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Frontend",
     blurb: "Interfaces engineered for clarity and speed.",
     skills: [
-      { name: "HTML", proficiency: 95, Icon: Globe },
-      { name: "CSS", proficiency: 92, Icon: Paintbrush },
-      { name: "React", proficiency: 92, Icon: Atom },
-      { name: "Next.js", proficiency: 86, Icon: Triangle },
-      { name: "Tailwind", proficiency: 90, Icon: Paintbrush },
+      { name: "HTML", proficiency: 90, Icon: Globe },
+      { name: "CSS", proficiency: 90, Icon: Paintbrush },
+      { name: "React", proficiency: 80, Icon: Atom },
+      { name: "Next.js", proficiency: 50, Icon: Triangle },
+      { name: "Tailwind", proficiency: 70, Icon: Paintbrush },
     ],
   },
   {
@@ -63,7 +79,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Backend",
     blurb: "APIs, auth, and the logic that powers products.",
     skills: [
-      { name: "Node.js", proficiency: 78, Icon: Server },
+      { name: "Node.js", proficiency: 60, Icon: Server },
       { name: "Express", proficiency: 86, Icon: Server },
       { name: "REST APIs", proficiency: 80, Icon: Workflow },
       { name: "Authentication", proficiency: 40, Icon: KeyRound },
@@ -173,7 +189,7 @@ export const EDUCATION: Education[] = [
     id: "btech",
     degree: "B.Tech · Computer Science Engineering",
     institution: "Hooghly Engineering & Technology College, West Bengal",
-    period: "2023 – 2027",
+    period: "2023 - 2027",
     metric: "7.56",
     metricLabel: "CGPA",
     description:
@@ -183,7 +199,7 @@ export const EDUCATION: Education[] = [
     id: "12th",
     degree: "Higher Secondary (Class XII)",
     institution: "Baidyapur Ramkrishna Vidyapith",
-    period: "2020 – 2022",
+    period: "2020 - 2022",
     metric: "84.6%",
     metricLabel: "Score",
     description:
@@ -193,7 +209,7 @@ export const EDUCATION: Education[] = [
     id: "10th",
     degree: "Secondary (Class X)",
     institution: "Biruha Sarat Chandra Uchcha Vidyalaya",
-    period: "2015 – 2020",
+    period: "2015 - 2020",
     metric: "90.71%",
     metricLabel: "Score",
     description:
