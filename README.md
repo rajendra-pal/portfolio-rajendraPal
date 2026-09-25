@@ -266,7 +266,7 @@ MIT License
 
 💻 GitHub: https://github.com/rajendra-pal
 
-📧 rajendrapal3257@gmail.com
+📧 Email ID: rajendrapal3257@gmail.com
 
 ---
 
