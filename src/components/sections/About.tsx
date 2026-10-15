@@ -34,7 +34,7 @@ export function About() {
           >
             <motion.div variants={fadeUp} className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/5 px-3 py-1 text-xs uppercase tracking-[0.2em] text-accent-secondary">
               <Sparkles className="h-3 w-3" />
-              Full Stack Developer
+              Full Stack & AI/ML Developer
             </motion.div>
 
             <motion.h3
@@ -50,30 +50,31 @@ export function About() {
               className="mt-6 space-y-4 text-base leading-relaxed text-white/65 md:text-[17px]"
             >
               <p>
-                I&apos;m Rajendra Pal — a Computer Science undergraduate
-                (B.Tech, 2023–2027) and a full stack developer who enjoys
-                turning real-world problems into working software. Most of my
-                work lives at the intersection of clean interfaces and
-                well-shaped APIs.
+                I&apos;m Rajendra Pal — a Computer Science Engineering undergraduate
+                (B.Tech, 2023–2027) seeking an AI/ML or Python Development Intern role.
+                I enjoy turning real-world problems into working software, with hands-on
+                experience building machine learning pipelines, backend functionality, REST APIs,
+                and database-driven applications.
               </p>
               <p>
-                My daily stack is <span className="text-white">React</span>,{" "}
+                My technical foundation spans <span className="text-white">Python</span>,{" "}
+                <span className="text-white">scikit-learn</span>,{" "}
+                <span className="text-white">Pandas & NumPy</span>,{" "}
+                <span className="text-white">React</span>,{" "}
                 <span className="text-white">Next.js</span>,{" "}
                 <span className="text-white">TypeScript</span>,{" "}
-                <span className="text-white">Node.js</span>,{" "}
-                <span className="text-white">Express</span>, and{" "}
-                <span className="text-white">MongoDB</span>, with{" "}
-                <span className="text-white">Python and it&apos;s libraries</span> on the side for
-                scripting and DSA. I care about the small things — responsive
-                layouts, authentication flows, query shapes — that decide
-                whether a product actually feels good.
+                <span className="text-white">Node.js / Express</span>,{" "}
+                <span className="text-white">Flask</span>, and{" "}
+                <span className="text-white">MongoDB, MySQL & SQL</span>.
+                I care about building complete solutions — from NLP data preprocessing and stacking
+                classifier ensembles to clean responsive layouts and secure query architectures.
               </p>
               <p>
-                Outside of coursework I ship end-to-end projects: an
-                e-commerce platform for an art school, a student productivity
-                suite, and a Spotify-inspired streaming UI. I&apos;m currently
-                exploring AI/ML to round out my stack and build tools that
-                are useful beyond the screen they&apos;re rendered on.
+                Outside of coursework I ship end-to-end applications: SpamShield (an SMS & Email spam classifier
+                with 97.7% accuracy), a full-stack Job Application Tracker with automated analytics,
+                an e-commerce platform for an art school with UPI checkout, and a student productivity suite.
+                I&apos;m an active learner of Artificial Intelligence & Machine Learning dedicated to delivering
+                clean, reliable, and high-impact engineering work.
               </p>
             </motion.div>
           </motion.div>

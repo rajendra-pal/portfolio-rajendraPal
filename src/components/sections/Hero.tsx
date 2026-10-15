@@ -103,9 +103,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 1.4 }}
           className="mt-5 max-w-2xl text-base text-white/55 md:text-lg"
         >
-          I build scalable, end-to-end web products — from REST APIs in
-          Node.js to polished interfaces in React and Next.js — with a sharp
-          eye for performance and detail.
+          I build scalable web products and AI/ML applications — from Python machine learning pipelines
+          and REST APIs to polished interfaces in React and Next.js.
         </motion.p>
 
         {/* CTAs */}
