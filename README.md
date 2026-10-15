@@ -271,3 +271,5 @@ MIT License
 ---
 
 ⭐ If you like this project, consider giving it a star!
+
+## Resume pdf is presesnt at portfolio-Rajendra\public\resume.pdf

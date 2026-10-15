@@ -1,15 +1,17 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Bot } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NAV_SECTIONS, SITE } from "@/lib/constants";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
+import { AIAssistant } from "@/components/layout/AIAssistant";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [aiOpen, setAiOpen] = useState(false);
   const active = useActiveSection(NAV_SECTIONS.map((s) => s.id));
 
   useEffect(() => {
@@ -90,16 +92,52 @@ export function Navbar() {
             })}
           </ul>
 
-          {/* Mobile menu trigger */}
+          {/* Ask AI button — desktop */}
           <button
             type="button"
-            onClick={() => setOpen((p) => !p)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-white md:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
+            onClick={() => setAiOpen((p) => !p)}
+            aria-label="Open AI assistant"
+            aria-pressed={aiOpen}
+            className={cn(
+              "hidden items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 md:flex",
+              aiOpen
+                ? "border-blue-500/60 bg-blue-500/15 text-blue-400 shadow-[0_0_14px_rgba(59,130,246,0.35)]"
+                : "border-white/10 bg-white/[0.03] text-white/70 hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-blue-400"
+            )}
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            <Bot className="h-4 w-4" />
+            Ask AI
           </button>
+
+          {/* Mobile menu trigger */}
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                setAiOpen((p) => !p);
+              }}
+              aria-label="Open AI assistant"
+              aria-pressed={aiOpen}
+              className={cn(
+                "grid h-10 w-10 place-items-center rounded-full border text-white transition-all",
+                aiOpen
+                  ? "border-blue-500/60 bg-blue-500/15 text-blue-400"
+                  : "border-white/10 bg-white/[0.03]"
+              )}
+            >
+              <Bot className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setOpen((p) => !p)}
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-white"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </nav>
       </motion.header>
 
@@ -143,10 +181,33 @@ export function Navbar() {
                   </button>
                 </motion.li>
               ))}
+              <motion.li
+                variants={{
+                  hidden: { opacity: 0, y: 18 },
+                  show: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5 }}
+                className="w-full text-center pt-3"
+              >
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    setAiOpen(true);
+                  }}
+                  className="inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/15 px-6 py-2.5 font-display text-lg font-medium text-blue-400 shadow-[0_0_16px_rgba(59,130,246,0.25)] transition-all active:scale-95"
+                >
+                  <Bot className="h-5 w-5" />
+                  Ask AI Assistant
+                </button>
+              </motion.li>
             </motion.ul>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* AI Assistant Terminal */}
+      <AIAssistant isOpen={aiOpen} onClose={() => setAiOpen(false)} />
     </>
   );
 }
