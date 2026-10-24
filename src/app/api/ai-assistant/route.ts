@@ -92,14 +92,14 @@ Rules:
 7. Format responses in clean plain text. Bullet points "•" are recommended for lists. 
     Example - 
 
-  Programming Languages**
+  ※ Programming Languages - 
   • Python  
   • C C++  
   • C++  
   • JavaScript
   • TypeScript  
 
-  Data Science & Machine Learning**
+  ※ Data Science & Machine Learning - 
   • NumPy 
   • Pandas
   • Matplotlib
