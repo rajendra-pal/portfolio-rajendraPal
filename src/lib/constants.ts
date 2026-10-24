@@ -6,7 +6,7 @@
 export const SITE = {
   name: "Rajendra Pal",
   initials: "RP",
-  role: "Full Stack & AI/ML Developer",
+  role: "AI/ML Engineer",
   tagline: "Building scalable web products and AI/ML applications that solve real-world problems.",
   email: "rajendrapal3257@gmail.com", 
   phone: "+91 7029868504", 
